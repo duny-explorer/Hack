@@ -1,0 +1,36 @@
+{% extends "main.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+{% block content1 %}
+{% if version == 1 %}
+<h3>Авторизация</h3>
+{% else %}
+{% if version == 2 %}
+<h3>Добавление задачи</h3>
+{% else %}
+<h3>Регистрация</h3>
+{% endif %}
+{% endif %}
+<form action="" method="post" novalidate>
+    <div class="form-group">
+        {{ form. hidden_tag () }}
+        {{ wtf.quick_form(form) }}
+
+        {{  wtf.form_errors (form ,  hiddens = "only" )  }}
+
+        {% if version == 1%}
+        <a href="/register">Регистрация</a>
+        {% endif %}
+
+        {% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+    </div>
+</form>
+
+{% endblock %}

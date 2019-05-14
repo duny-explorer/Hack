@@ -1,0 +1,17 @@
+{% extends "main.html" %}
+{% block content1 %}
+<title>{{ task.name }}</title>
+<div class="card">
+    <div class="media mt-3">
+        <div class="media-body">
+            <a role="button" class="close xl" aria-label="Close" href="/"><span aria-hidden="true">&times;</span></a>
+            <h5 class="mt-0">{{ task.name }}</h5>
+            <p>Категория: {{ task.category }}</p>
+            <p>{{task.text}}</p>
+            <p>Сделать до {{ task.time_end }}</p>
+        </div>
+    </div>
+</div>
+
+{% block content2 %}{% endblock %}
+{% endblock %}
